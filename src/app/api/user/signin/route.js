@@ -38,7 +38,6 @@ export async function POST(_request){
 
     console.log('avv-loda') ;
     const filteredUser = user[1].user[0][0]; 
-    
 
 
     if(filteredUser){
