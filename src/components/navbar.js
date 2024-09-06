@@ -23,13 +23,13 @@ export default function Navbar() {
 
 
     return (
-        <section className="sticky top-0">
-            <nav className={`navbar flex flex-row w-full items-center justify-between p-4 lg:p-3 lg:px-8 lg:h-[6dvh] text-black transition-all ease-in-out ${isBgVisible ? 'bg-blue-500' : 'bg-transparent'}`}>
+        <section className={`sticky top-0 z-50 ${isBgVisible ? "shadow shadow-gray-500" : ""}`}>
+            <nav className={`navbar flex flex-row w-full items-center justify-between p-4 lg:p-3 lg:px-8 lg:h-[6dvh] text-black transition-all ease-in-out ${isBgVisible ? 'bg-blue-500' : 'bg-white'}`}>
                 {/* Brand Image */}
-                <div className="flex items-center gap-2 text-2xl">
+                <a href="/" className="flex items-center gap-2 text-2xl">
                     <img src="/medibook.svg" className="w-12" alt="Logo" />
                     <span>MediBook</span>
-                </div>
+                </a>
 
                 {/* Navigation Links */}
                 <div>
@@ -57,7 +57,7 @@ export default function Navbar() {
 
             {/* Mobile Menu */}
             <section className={`transition-all ease-in-out duration-200 overflow-hidden max-h-0 ${isOpen ? 'max-h-[20rem]': ''}`}>
-                <div className="p-3 bg-blue-400">
+                <div className={`p-3 ${isBgVisible ? 'bg-blue-400' : 'bg-white'}`}>
                     <ul className="grid grid-flow-row rounded-lg items-center bg-blue-300 text-black overflow-hidden *:flex *:*:p-4 *:*:w-full text-center nav-mobile-links">
                         <li>
                             <a href="/">Home</a>

@@ -12,6 +12,14 @@ body {
   }
 }
 
+@layer base {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
 .nav-mobile-links > li > a:hover {
   @apply bg-blue-200 transition-all ease-in-out duration-200
 }
