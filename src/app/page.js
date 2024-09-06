@@ -13,6 +13,11 @@ const inter = Inter({
   weight: "400"
 });
 
+export const metadata = {
+  title: 'Home',
+  description: 'Medibook Home Page'
+}
+
 export default function Home() {
   
   return (
@@ -30,8 +35,8 @@ export default function Home() {
             </div>
 
             <div className="grid grid-flow-col grid-cols-2 gap-2 justify-evenly">
-              <button className="rounded-lg bg-gradient-to-r from-blue-700 via-blue-600 to-blue-700 px-12 p-4">Book Now</button>
-              <button className="rounded-lg bg-gradient-to-r from-slate-600 via-slate-500 to-slate-600 px-12 p-4">Login</button>
+              <button className="rounded-lg bg-gradient-to-r transition-all ease-in-out hover:scale-105 from-blue-700 via-blue-600 to-blue-700 px-12 p-4">Book Now</button>
+              <button className="rounded-lg bg-gradient-to-r transition-all ease-in-out hover:scale-105 from-slate-600 via-slate-500 to-slate-600 px-12 p-4">Login</button>
             </div>
 
           </div>
