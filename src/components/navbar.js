@@ -11,10 +11,12 @@ export default function Navbar() {
     const [isBgVisible, setIsBgVisible] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-
     useEffect(() => {
+
+        let token = localStorage.getItem("token");
+
         if(token) {
-            fetch('/api/decode', {
+            fetch('/api/user/decode', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -30,7 +32,7 @@ export default function Navbar() {
                 }
             });
         }
-    }, [token]);
+    });
 
     useEffect(() => {
       window.addEventListener('scroll', handleScroll);
@@ -70,7 +72,7 @@ export default function Navbar() {
 
                 {/* login and ham menu */}
                 <div className="grid grid-flow-col h-full text-center items-center justify-center gap-3">
-                    <a href="/login" className={`bg-slate-100 h-full justify-center items-center px-4 rounded ${isLoggedIn ? 'flex' : 'hidden'}`}>Login</a>
+                    <a href="/login" className={`bg-slate-100 h-full justify-center items-center px-4 rounded ${isLoggedIn ? 'hidden' : 'flex'}`}>Login</a>
                     <button onClick={toggleMenu} className={'flex lg:hidden bg-slate-100 active:bg-blue-200 rounded transition-all ease-in-out'}>
                         <IoIosMenu fontSize={35} />
                     </button>
