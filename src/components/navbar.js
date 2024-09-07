@@ -9,6 +9,28 @@ export default function Navbar() {
     const toggleMenu = () => setIsOpen((prev) => !prev);
 
     const [isBgVisible, setIsBgVisible] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+
+    useEffect(() => {
+        if(token) {
+            fetch('/api/decode', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ token })
+            }).then(res => res.json())
+            .then(data => {
+                if(data.error) {
+                    setIsLoggedIn(false);
+                    localStorage.removeItem('token');
+                } else {
+                    setIsLoggedIn(true);
+                }
+            });
+        }
+    }, [token]);
 
     useEffect(() => {
       window.addEventListener('scroll', handleScroll);
@@ -46,9 +68,9 @@ export default function Navbar() {
                     </ul>
                 </div>
 
-                {/* login */}
+                {/* login and ham menu */}
                 <div className="grid grid-flow-col h-full text-center items-center justify-center gap-3">
-                    <a href="/login" className="bg-slate-100 h-full flex justify-center items-center px-4 rounded">Login</a>
+                    <a href="/login" className={`bg-slate-100 h-full justify-center items-center px-4 rounded ${isLoggedIn ? 'flex' : 'hidden'}`}>Login</a>
                     <button onClick={toggleMenu} className={'flex lg:hidden bg-slate-100 active:bg-blue-200 rounded transition-all ease-in-out'}>
                         <IoIosMenu fontSize={35} />
                     </button>

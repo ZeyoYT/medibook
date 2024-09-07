@@ -36,14 +36,13 @@ export async function POST(_request){
     const body = await _request.json();
     const user = await areCredentialsTrue(body);
 
-    console.log('avv-loda') ;
     const filteredUser = user[1].user[0][0]; 
 
 
     if(filteredUser){
 
         const token = await jwt.sign(
-            filteredUser, "lundmaro"
+            filteredUser, "secretofdumbledore",
         );
 
         return NextResponse.json({

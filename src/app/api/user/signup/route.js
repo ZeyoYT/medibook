@@ -14,7 +14,6 @@ async function isContactValid(contact){
     if(user[0].length == 0 ){
         return true;
     } else {
-        console.log(user);
         return false;
     }
 }
