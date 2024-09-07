@@ -7,25 +7,7 @@ const routes = {
             "url": ""
         },
         {
-            "name": "signin",
-            "url": ""
-        },
-        {
-            "name": "signup",
-            "url": ""
-        }
-    ],
-    "admin": [
-        {
-            "name": "home",
-            "url": ""
-        },
-        {
-            "name": "signin",
-            "url": ""
-        },
-        {
-            "name": "signup",
+            "name": "login",
             "url": ""
         },
         {
@@ -33,13 +15,16 @@ const routes = {
             "url": ""
         },
         {
-            "name": "requests",
+            "name": "profile",
             "url": ""
         },
+    ],
+    "admin": [
         {
-            "name": "records",
-            "urls": ""
-        }
+            "name": "dashboards",
+            "url": ""
+        },
+
 
     ]
 }
