@@ -21,6 +21,32 @@ function performLogin(e) {
     });
 }
 
+function performRegistration(e) {
+    const fullName = e.target[0].value;
+    const contact = e.target[1].value;
+    const password = e.target[2].value;
+    const confPasswd = e.target[3].value;
+
+    if(password != confPasswd) {
+        alert("Error password and confirm password does not match!");
+        return;
+    }
+
+    axios.post("/api/user/signup", {
+        fullName,
+        contact,
+        password
+    }).then(res => {
+        if(res.status == 200) {
+            alert("User registered successfully");
+        } else {
+            alert("Number already registered");
+        }
+    }).catch(e => {
+        alert("Something went wrong");
+    });
+}
+
 export default function Login() {
     
     return(
@@ -28,7 +54,7 @@ export default function Login() {
             <div className="grid grid-cols-1 gap-4 w-[80%] lg:w-[30%]">
                 
                 <form id="login" onSubmit={performLogin} className="flex flex-col gap-4 border border-black p-12 rounded-[1rem] bg-slate-800 backdrop-blur-lg bg-opacity-80">
-                    <h1 className="text-3xl font-bold text-center">Login</h1>
+                    <h1 className="text-3xl text-white font-bold text-center">Login</h1>
 
                     <input type="number" placeholder="Contact" className="p-2 border border-gray-300 rounded" />
                     <input type="password" placeholder="Password" className="p-2 border border-gray-300 rounded" />
@@ -40,7 +66,7 @@ export default function Login() {
                     <div className="absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 bg-white px-4 rounded-full">OR</div>
                 </div>
 
-                <div className="flex flex-col gap-4 border border-black p-12 rounded-[1rem]">
+                <form onSubmit={performRegistration} className="flex flex-col gap-4 border border-black p-12 rounded-[1rem]">
                     <h1 className="text-3xl font-bold text-center">Register</h1>
 
                     <input type="text" placeholder="Name" className="p-2 border border-gray-300 rounded" />
@@ -49,7 +75,7 @@ export default function Login() {
                     <input type="password" placeholder="Confirm Password" className="p-2 border border-gray-300 rounded" />
 
                     <button type="submit" className="bg-blue-500 text-white p-2 rounded">Register</button>
-                </div>
+                </form>
 
             </div>
         </div>

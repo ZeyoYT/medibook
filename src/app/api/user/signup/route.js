@@ -3,7 +3,6 @@ import { connect } from "../../db";
 
 const db = await connect();
 
-
 async function isContactValid(contact){
     const user = await db.query(`
         SELECT * FROM user 
@@ -38,9 +37,6 @@ export async function POST(_request){
                 };
             `;
 
-            console.log(body.requests);
-
-            console.log(query);
             const user = await db.query(query);
 
             return NextResponse.json({

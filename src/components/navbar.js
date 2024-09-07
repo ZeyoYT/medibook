@@ -1,7 +1,15 @@
 "use client";
 
+import { redirect } from "next/dist/server/api-utils";
 import { useEffect, useState } from "react";
 import { IoIosMenu } from "react-icons/io";
+
+
+export function logout() {
+    localStorage.removeItem('token');
+    
+    window.location.href = "/";
+}
 
 export default function Navbar() {
 
@@ -10,7 +18,7 @@ export default function Navbar() {
 
     const [isBgVisible, setIsBgVisible] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+    
     useEffect(() => {
 
         let token = localStorage.getItem("token");
@@ -73,6 +81,8 @@ export default function Navbar() {
                 {/* login and ham menu */}
                 <div className="grid grid-flow-col h-full text-center items-center justify-center gap-3">
                     <a href="/login" className={`bg-slate-100 h-full justify-center items-center px-4 rounded ${isLoggedIn ? 'hidden' : 'flex'}`}>Login</a>
+                    <a href="/profile" className={`bg-slate-100 h-full justify-center items-center px-4 rounded ${isLoggedIn ? 'flex' : 'hidden'}`}>Profile</a>
+                    <button onClick={logout} className={`bg-slate-100 h-full justify-center items-center px-4 rounded ${isLoggedIn ? 'flex' : 'hidden'}`}>Logout</button>
                     <button onClick={toggleMenu} className={'flex lg:hidden bg-slate-100 active:bg-blue-200 rounded transition-all ease-in-out'}>
                         <IoIosMenu fontSize={35} />
                     </button>
