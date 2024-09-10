@@ -86,9 +86,9 @@ export default function Home() {
             </div>
           </section>
           
-          <section className="p-12 grid lg:grid-flow-col lg:grid-cols-2 grid-flow-row">
+          <section className="p-12 grid gap-9 lg:grid-flow-col lg:grid-cols-2 grid-flow-row">
             
-            <div className="flex flex-col gap-5 p-12 justify-evenly items-center">              
+            <div className="flex flex-col gap-6 lg:p-12 justify-evenly items-center">              
                 <div className="flex flex-col gap-5">
                   <span className="text-4xl">Services We Provide</span>
   

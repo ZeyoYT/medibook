@@ -1,6 +1,6 @@
 "use client";
 
-import { redirect } from "next/dist/server/api-utils";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { IoIosMenu } from "react-icons/io";
 
@@ -58,31 +58,31 @@ export default function Navbar() {
         <section className={`sticky top-0 z-50 ${isBgVisible ? "shadow shadow-gray-500" : ""}`}>
             <nav className={`navbar flex flex-row w-full items-center justify-between p-4 lg:p-3 lg:px-8 lg:h-[6dvh] text-black transition-all ease-in-out ${isBgVisible ? 'bg-blue-500' : 'bg-white'}`}>
                 {/* Brand Image */}
-                <a href="/" className="flex items-center gap-2 text-2xl">
+                <Link href="/" className="flex items-center gap-2 text-xl lg:text-2xl">
                     <img src="/medibook.svg" className="w-12" alt="Logo" />
                     <span>MediBook</span>
-                </a>
+                </Link>
 
                 {/* Navigation Links */}
                 <div>
                     <ul className="hidden lg:flex space-x-4">
                         <li>
-                            <a href="/">Home</a>
+                            <Link href="/">Home</Link>
                         </li>
                         <li>
-                            <a href="/about">About</a>
+                            <Link href="/about">About</Link>
                         </li>
                         <li>
-                            <a href="/contact">Contact</a>
+                            <Link href="/contact">Contact</Link>
                         </li>
                     </ul>
                 </div>
 
-                {/* login and ham menu */}
+                {/* login, profile, logout and ham menu */}
                 <div className="grid grid-flow-col h-full text-center items-center justify-center gap-3">
-                    <a href="/login" className={`bg-slate-100 h-full justify-center items-center px-4 rounded ${isLoggedIn ? 'hidden' : 'flex'}`}>Login</a>
-                    <a href="/profile" className={`bg-slate-100 h-full justify-center items-center px-4 rounded ${isLoggedIn ? 'flex' : 'hidden'}`}>Profile</a>
-                    <button onClick={logout} className={`bg-slate-100 h-full justify-center items-center px-4 rounded ${isLoggedIn ? 'flex' : 'hidden'}`}>Logout</button>
+                    <Link href="/login" className={`bg-slate-300 h-full justify-center items-center px-4 rounded ${isLoggedIn ? 'hidden' : 'flex'}`}>Login</Link>
+                    <Link href="/profile" className={`bg-slate-300 h-full justify-center items-center px-4 rounded ${isLoggedIn ? 'flex' : 'hidden'}`}>Profile</Link>
+                    <button onClick={logout} className={`bg-red-300 h-full justify-center items-center px-4 rounded ${isLoggedIn ? 'flex' : 'hidden'}`}>Logout</button>
                     <button onClick={toggleMenu} className={'flex lg:hidden bg-slate-100 active:bg-blue-200 rounded transition-all ease-in-out'}>
                         <IoIosMenu fontSize={35} />
                     </button>
@@ -94,13 +94,13 @@ export default function Navbar() {
                 <div className={`p-3 ${isBgVisible ? 'bg-blue-400' : 'bg-white'}`}>
                     <ul className="grid grid-flow-row rounded-lg items-center bg-blue-300 text-black overflow-hidden *:flex *:*:p-4 *:*:w-full text-center nav-mobile-links">
                         <li>
-                            <a href="/">Home</a>
+                            <Link href="/">Home</Link>
                         </li>
                         <li>
-                            <a href="/about">About</a>
+                            <Link href="/about">About</Link>
                         </li>
                         <li>
-                            <a href="/contact">Contact</a>
+                            <Link href="/contact">Contact</Link>
                         </li>
                     </ul>
                 </div>

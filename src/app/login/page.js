@@ -53,7 +53,7 @@ export default function Login() {
         <div className="h-[100vh] flex items-center justify-center bg-gradient-to-l from-gray-200 via-blue-200 to-stone-100">
             <div className="grid grid-cols-1 gap-4 w-[80%] lg:w-[30%]">
                 
-                <form id="login" onSubmit={performLogin} className="flex flex-col gap-4 border border-black p-12 rounded-[1rem] bg-slate-800 backdrop-blur-lg bg-opacity-80">
+                <form id="login" onSubmit={performLogin} className="flex flex-col gap-4 border border-black lg:p-12 p-4 py-12 rounded-[1rem] bg-slate-800 backdrop-blur-lg bg-opacity-80">
                     <h1 className="text-3xl text-white font-bold text-center">Login</h1>
 
                     <input type="number" placeholder="Contact" className="p-2 border border-gray-300 rounded" />
@@ -66,7 +66,7 @@ export default function Login() {
                     <div className="absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 bg-white px-4 rounded-full">OR</div>
                 </div>
 
-                <form onSubmit={performRegistration} className="flex flex-col gap-4 border border-black p-12 rounded-[1rem]">
+                <form onSubmit={performRegistration} className="flex flex-col gap-4 border border-black lg:p-12 p-4 py-12 rounded-[1rem]">
                     <h1 className="text-3xl font-bold text-center">Register</h1>
 
                     <input type="text" placeholder="Name" className="p-2 border border-gray-300 rounded" />
